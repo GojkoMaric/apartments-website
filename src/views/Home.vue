@@ -1,11 +1,11 @@
 <template>
   <main>
     <div class="home">
-      <ul v-for="apartment in getApartments" :key="apartment.id">
+      <ul v-for="apartment in getApartments" :key="apartment.id" v-on:click="goToSingleApartment(apartment.id)">
         <li><img :src=apartment.images[0].url></li>
         <div class='apartment-info'>
           <p>{{apartment.description}}</p>
-          <li><span> </span>{{apartment.location.formatted}}</li>
+          <li><span> </span><i class="fas fa-map-marker-alt icon-color"></i> {{apartment.location.formatted}}</li>
           <hr>
           <div>
             <span>
@@ -46,6 +46,11 @@ export default {
       })
       return this.apartments;
     },
+  },
+  methods: {
+    goToSingleApartment(apartmentId) {
+      this.$router.push({path: `/apartment/${apartmentId}`});
+    }
   }
 }
 </script>
@@ -72,6 +77,8 @@ main{
       justify-content: space-around;
       min-width: 310px;
       margin: 0;
+      transition-duration: .3s;
+      cursor: pointer;
       li {
         list-style-type: none;
         border-radius: 10px;
@@ -81,6 +88,20 @@ main{
       img {
         height: 100%;
         width: 100%;
+      }
+      &:hover {
+        transform: translateY(-3%);
+        transition-timing-function: linear;
+        transition-delay: .2s;
+        transition-duration: .3s;
+        .apartment-info {
+          transition-delay: .1s;
+          transition-duration: .3s;
+          transition-timing-function: ease-in;
+          border-top-left-radius: 0;
+          border-top-right-radius: 0;
+          padding: 5% 10%;
+        }
       }
     }
   } 
@@ -93,6 +114,9 @@ main{
   transform: translateY(-30px);
   border-radius: 10px;
   box-shadow: 0px 0px 10px 0px $shadowColor;
+  transition-duration: .3s;
+  transition-delay: .2s;
+  transition-timing-function: ease-out;
   p {
     font-weight: bold;
   }
@@ -121,17 +145,17 @@ main{
     span {
       line-height: 1em;
       li {
-        font-size: xx-small;
+        font-size: .5rem;;
       }
       li:nth-child(2) {
-        color: $lightGray;
+        color: $shadowColor;
         font-weight: bold;
       }
     }
     span:nth-child(2) {
       border-right: 1px solid $lightGray;
       border-left: 1px solid $lightGray;
-      padding: 0 10%;
+      padding: 0 1rem;
     }
     span:last-child {
       width: 20%;
@@ -140,6 +164,10 @@ main{
       }
     }
   }
+}
+
+.icon-color {
+  color: $lightGray;
 }
 
 </style>
