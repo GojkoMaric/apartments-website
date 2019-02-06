@@ -1,8 +1,8 @@
 <template>
-    <div class='back'>
+    <header>
         <div class='header'>
             <ul>
-                <li><img src="../assets/logo.png"></li>
+                <li><router-link to="/"><img src="../assets/company-logo.png"></router-link></li>
                 <li>Te koop</li>
                 <li>Te huur</li>
                 <li>Neiuwbouw</li>
@@ -12,7 +12,7 @@
                 <li>Blog</li>
             </ul>
         </div>
-    </div>
+    </header>
 </template>
 
 <script>
@@ -22,12 +22,12 @@ export default {
 </script>
 
 <style lang="scss">
-$softDark: #242B33;
-$dark: #1B1E25;
-$white: #fff;
+$secondary-color: #242B33;
+$background-color: #1B1E25;
+$text-color: #fff;
 $headerHeight: 50px;
 .header {
-    background-color: $softDark;
+    background-color: $secondary-color;
     height: $headerHeight;
     overflow: hidden;
     img {
@@ -42,15 +42,17 @@ $headerHeight: 50px;
         width: 60%;
         margin: 0 auto;
         align-items: center;
+        text-align: center;
+        min-width: 450px;
         li {
-            color: $white;
+            color: $text-color;
             list-style-type: none;
-            font-size: small;
+            font-size: .8rem;
             padding: 10% 0;
             flex-grow: 1;
             &:hover {
                 background-color: lightgray;
-                color: $softDark;
+                color: $secondary-color;
                 cursor: pointer;
             }
         }
@@ -60,9 +62,9 @@ $headerHeight: 50px;
     }
 }
 
-.back {
+header {
     height: $headerHeight*3;
-    background-color: $dark;
+    background-color: $background-color;
 }
 
 </style>
