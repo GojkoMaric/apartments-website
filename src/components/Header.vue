@@ -3,13 +3,13 @@
         <div class='header'>
             <ul>
                 <li><router-link to="/"><img src="../assets/company-logo.png"></router-link></li>
-                <li>Te koop</li>
-                <li>Te huur</li>
-                <li>Neiuwbouw</li>
-                <li>Ik ben op zoek</li>
-                <li>Team</li>
-                <li>Prijzen</li>
-                <li>Blog</li>
+                <li><router-link to="/">Te koop</router-link></li>
+                <li><router-link to="/">Te huur</router-link></li>
+                <li><router-link to="/">Neiuwbouw</router-link></li>
+                <li><router-link to="/">Ik ben op zoek</router-link></li>
+                <li><router-link to="/">Team</router-link></li>
+                <li><router-link to="/">Prijzen</router-link></li>
+                <li><router-link to="/">Blog</router-link></li>
             </ul>
         </div>
     </header>
@@ -44,12 +44,13 @@ $headerHeight: 50px;
         align-items: center;
         text-align: center;
         min-width: 450px;
-        li {
+        li, a {
             color: $text-color;
             list-style-type: none;
             font-size: .8rem;
             padding: 10% 0;
             flex-grow: 1;
+            text-decoration: none;
             &:hover {
                 background-color: lightgray;
                 color: $secondary-color;

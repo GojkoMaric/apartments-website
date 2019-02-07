@@ -28,14 +28,9 @@
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
 
 export default {
   name: 'home',
-  components: {
-    HelloWorld
-  },
   data: () => ({
     apartments: []
   }),
@@ -51,13 +46,16 @@ export default {
     goToSingleApartment(apartmentId) {
       this.$router.push({path: `/apartment/${apartmentId}`});
     }
+  },
+  mounted() {
+      document.getElementsByTagName('header')[0].style.height = "150px";
   }
 }
 </script>
 
 <style lang="scss">
 $lightGray: #7B828C;
-$shadowColor: #555;
+$shadow-color: #555;
 $blackText: #1C1F26;
 
 main{
@@ -113,7 +111,7 @@ main{
   width: 81%;
   transform: translateY(-30px);
   border-radius: 10px;
-  box-shadow: 0px 0px 10px 0px $shadowColor;
+  box-shadow: 0px 0px 10px 0px $shadow-color;
   transition-duration: .3s;
   transition-delay: .2s;
   transition-timing-function: ease-out;
@@ -148,7 +146,7 @@ main{
         font-size: .5rem;;
       }
       li:nth-child(2) {
-        color: $shadowColor;
+        color: $shadow-color;
         font-weight: bold;
       }
     }

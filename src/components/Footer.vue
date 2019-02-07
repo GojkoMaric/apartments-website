@@ -96,9 +96,9 @@ export default {
 
 <style lang="scss">
 $softDark: #242B33;
-$dark: #1B1E25;
+$bg-primary-color: #1B1E25;
 $secondary-text-color: #84C255;
-$greyText: #79808A;
+$primary-text-color: #79808A;
 .footer {
     background-color: $softDark;
     min-height: 100px;
@@ -107,7 +107,6 @@ $greyText: #79808A;
         justify-content: space-evenly;
         width: 70%;
         margin: 0 auto;
-        min-width: 650px;
     }
     div {
         flex-grow: 1;
@@ -122,7 +121,7 @@ $greyText: #79808A;
         color: $secondary-text-color;
     }
     li, p {
-        color: $greyText;
+        color: $primary-text-color;
         font-size: .8rem;
         list-style-type: none;
     }
@@ -135,13 +134,13 @@ $greyText: #79808A;
 }
 
 .footer-copy {
-    background-color: $dark;
+    background-color: $bg-primary-color;
     justify-content: center;
     display: flex;
     height: 30px;
     align-items: center;
     p{
-        color: $greyText;
+        color: $primary-text-color;
         font-size: smaller;
     }
 }
@@ -172,6 +171,17 @@ i {
         display: flex;
         flex-direction: column;
         justify-content: space-around;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    .footer {
+        span {
+            flex-wrap: wrap;
+            div:first-child {
+                width: 100%;
+            }
+        }
     }
 }
 </style>
